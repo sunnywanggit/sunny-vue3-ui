@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SunnySwitch :value="y" @input="y = $event"/>
+        <SunnySwitch v-model:value="y" />
     </div>
 </template>
 <script lang="ts">
