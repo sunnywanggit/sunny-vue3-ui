@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggle" :class="{checked}">
+    <button @click="toggle" :class="{checked:value}">
         <span></span>
     </button>
 </template>
@@ -9,13 +9,14 @@
 
     export default {
         name:'SunnySwitch',
+        props:{
+            value:Boolean
+        },
         setup(){
-            const checked = ref(false);
             const toggle=()=>{
-                checked.value = !checked.value;
             }
 
-            return {checked,toggle}
+            return {toggle}
         }
 
 
