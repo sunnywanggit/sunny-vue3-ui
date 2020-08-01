@@ -12,8 +12,10 @@
         props:{
             value:Boolean
         },
-        setup(){
+        setup(props,context){
             const toggle=()=>{
+                context.emit('input',!props.value)
+
             }
 
             return {toggle}
