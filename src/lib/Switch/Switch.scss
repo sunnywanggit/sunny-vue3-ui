@@ -1,0 +1,26 @@
+.sui-switch{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background:#CCCCCC;
+  position: relative;
+  & > &-core{
+    position: absolute;
+    left: 2px;
+    margin-left: 0;
+    background:white;
+    transition: all .3s linear;
+  }
+  &.checked{
+    background-color: #009BFF;
+  }
+  &.checked > &-core{
+    margin-left: 50%;
+
+  }
+  &:focus{
+    //消除button的外边框
+    outline: none;
+  }
+}

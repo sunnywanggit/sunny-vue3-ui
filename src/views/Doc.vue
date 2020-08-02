@@ -60,8 +60,7 @@ export default {
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
-    background: lightgreen;
+    padding: 0px 50px;
   }
 }
 aside {
@@ -84,5 +83,6 @@ aside {
 }
 main {
   overflow: auto;
+  margin-bottom: 300px;
 }
 </style>

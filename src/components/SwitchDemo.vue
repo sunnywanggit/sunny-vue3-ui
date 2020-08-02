@@ -18,10 +18,10 @@
             <p class="text">设置size为 large 或 small 使用大号和小号的开关。</p>
         </section>
         <section class="card">
-            <SunnySwitch v-model:value="SizeLargeBool" size="large"/>
-            <SunnySwitch v-model:value="SizeSmallBool" size="small"/>
-            <h4 class="margin10">文字</h4>
-            <p class="text">自定义内容，建议如果使用2个汉字，将开关尺寸设置为 large。</p>
+            <SunnySwitch v-model:value="TextBool1" :disabled="SizeLargeBoolDisabled"/>
+            <SunnySwitch v-model:value="TextBool2" :disabled="SizeSmallBoolDisabled" size="small"/>
+            <h4 class="margin10">不可用</h4>
+            <p class="text">禁用开关。</p>
         </section>
     </div>
 </template>
@@ -34,7 +34,9 @@
             const BaseBool= ref(true);
             const SizeLargeBool = ref(false)
             const SizeSmallBool = ref(false)
-            return {BaseBool,SizeLargeBool,SizeSmallBool}
+            const SizeLargeBoolDisabled= ref(true)
+            const SizeSmallBoolDisabled= ref(true)
+            return {BaseBool,SizeLargeBool,SizeSmallBool,SizeLargeBoolDisabled,SizeSmallBoolDisabled}
         }
     }
 </script>
