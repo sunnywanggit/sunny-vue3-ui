@@ -1,0 +1,28 @@
+
+
+
+.margin20{
+  margin: 20px 0;
+}
+
+.margin15{
+  margin: 15px 0;
+}
+
+.margin10{
+  margin: 10px 0;
+}
+
+.card{
+  border: 1px solid #EEEEEE;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  &:hover{
+    box-shadow: 5px 5px 3px #EEEEEE;
+  }
+}
+
+
+.text{
+  font-size: 13px;
+}
