@@ -1,24 +1,36 @@
 <template>
-    <button @click="toggle" :class="{checked:value}">
-        <span></span>
+    <button class="sui-switch" :class="{checked:value}" :style="wrapperStyle" @click="toggle" >
+        <span class="sui-switch-core" :style="innerStyle">{{text&&text}}</span>
     </button>
 </template>
 
 <script lang="ts">
-    import {ref} from 'vue'
+    import {ref,computed} from 'vue'
 
     export default {
         name:'SunnySwitch',
         props:{
-            value:Boolean
+            value:Boolean,
+            size:String,
+            text:String
         },
         setup(props,context){
             const toggle=()=>{
                 context.emit('update:value',!props.value)
-
             }
 
-            return {toggle}
+            const wrapperStyle = computed(()=>{
+                return props.size === 'small' ?
+                    `height:12px;width:24px;border-radius:6px`:
+                    'height:24px;width:48px;border-radius:12px'
+            })
+            const innerStyle = computed(()=>{
+                return props.size === 'small' ?
+                    `height:8px;width:8px;border-radius:4px`:
+                    `height:20px;width:20px;border-radius:8px`
+            })
+
+            return {toggle,wrapperStyle,innerStyle}
         }
 
 
@@ -26,30 +38,30 @@
 </script>
 
 <style scoped lang="scss">
-    $h: 22px;
-    $h2: $h - 4px;
-    button{
-        height: $h;
-        width: $h*2;
+    $wrapperHeight: 24px;
+    $innerHeight: $wrapperHeight - 4px;
+    .sui-switch{
+        height: $wrapperHeight;
+        width: $wrapperHeight*2;
         border: none;
-        background:grey;
-        border-radius: $h/2;
+        background:#CCCCCC;
+        border-radius: $wrapperHeight/2;
         position: relative;
-        & > span{
+        & > &-core{
             position: absolute;
-            top: 2px;
-            left: 2px;
-            height: $h2;
-            width: $h2;
+            top: 10%;
+            left: 6%;
+            height: $innerHeight;
+            width: $innerHeight;
             background:white;
-            border-radius: $h2 / 2;
+            border-radius: $innerHeight / 2;
             transition: left 250ms;
         }
         &.checked{
-            background-color: blue;
+            background-color: #009BFF;
         }
-        &.checked > span{
-            left: calc(100% - #{$h2} - 2px);
+        &.checked > &-core{
+            left: 54%;
 
         }
         &:focus{
