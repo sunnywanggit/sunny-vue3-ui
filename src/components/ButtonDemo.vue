@@ -4,6 +4,17 @@
         <Button theme="button">你好 </Button>
         <Button theme="text">你好 </Button>
         <Button theme="link">你好 </Button>
+        <h1>size</h1>
+        <Button size="big">big</Button>
+        <Button size="middle">normal</Button>
+        <Button size="small">small</Button>
+        <h1>level</h1>
+        <Button level="main">main主要按钮</Button>
+        <Button>big</Button>
+        <Button level="danger">危险按钮</Button>
+        <h1>disabled</h1>
+        <Button disabled>disabled</Button>
+        <Button :disabled="true">disabled</Button>
     </div>
 </template>
 
