@@ -37,4 +37,4 @@
     }
 </script>
 
-<style scoped lang="scss"> @import "./Switch.scss"; </style>
+<style lang="scss"> @import "./Switch.scss"; </style>
