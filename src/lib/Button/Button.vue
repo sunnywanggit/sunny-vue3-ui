@@ -1,5 +1,6 @@
 <template>
     <button class="sui-button" :class="classes" :disabled="disabled">
+        <span v-if="loading" class="sui-loadingIndicator"></span>
         <slot/>
     </button>
 </template>
@@ -20,15 +21,19 @@
             },
             level: {
                 type: String,
-                default: "normal",
+                default: 'normal',
             },
-            disabled:{
-                type:Boolean,
-                default:false
+            disabled: {
+                type: Boolean,
+                default: false
+            },
+            loading: {
+                type: Boolean,
+                default: false
             }
         },
         setup(props) {
-            const {theme, size ,level} = props;
+            const {theme, size, level} = props;
             const classes = computed(() => {
                 return {
                     [`sui-theme-${theme}`]: theme,
@@ -114,21 +119,25 @@
             height: 20px;
             padding: 0 4px;
         }
+
         &.sui-theme-button {
             &.sui-level-main {
                 background: $blue;
                 color: white;
                 border-color: $blue;
+
                 &:hover,
                 &:focus {
                     background: darken($blue, 10%);
                     border-color: darken($blue, 10%);
                 }
             }
+
             &.sui-level-danger {
                 background: $red;
                 border-color: $red;
                 color: white;
+
                 &:hover,
                 &:focus {
                     background: darken($red, 10%);
@@ -136,40 +145,49 @@
                 }
             }
         }
+
         &.sui-theme-link {
             &.sui-level-danger {
                 color: $red;
+
                 &:hover,
                 &:focus {
                     color: darken($red, 10%);
                 }
             }
         }
+
         &.sui-theme-text {
             &.sui-level-main {
                 color: $blue;
+
                 &:hover,
                 &:focus {
                     color: darken($blue, 10%);
                 }
             }
+
             &.sui-level-danger {
                 color: $red;
+
                 &:hover,
                 &:focus {
                     color: darken($red, 10%);
                 }
             }
         }
+
         &.sui-theme-button {
             &[disabled] {
                 cursor: not-allowed;
                 color: $grey;
+
                 &:hover {
                     border-color: $grey;
                 }
             }
         }
+
         &.sui-theme-link, &.sui-theme-text {
             &[disabled] {
                 cursor: not-allowed;
@@ -177,6 +195,23 @@
             }
         }
 
+        > .sui-loadingIndicator {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            margin-right: 4px;
+            border-radius: 8px;
+            border-color: $blue $blue $blue transparent;
+            border-style: solid;
+            border-width: 2px;
+            animation: sui-spin 1s infinite linear;
+        }
     }
+
+    @keyframes sui-spin {
+        0% {transform: rotate(0deg)}
+        100% {transform: rotate(360deg)}
+    }
+
 </style>
 
