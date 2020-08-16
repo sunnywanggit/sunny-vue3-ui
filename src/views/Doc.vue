@@ -20,6 +20,9 @@
           <li>
             <router-link to="/doc/datepicker">DatePicker 组件</router-link>
           </li>
+          <li>
+            <router-link to="/doc/input">Input 组件</router-link>
+          </li>
         </ol>
       </aside>
       <main>
@@ -52,7 +55,7 @@ export default {
     padding-top: 60px;
     padding-left: 156px;
     @media (max-width: 500px) {
-      padding-left: 0; 
+      padding-left: 0;
     }
   }
 }
