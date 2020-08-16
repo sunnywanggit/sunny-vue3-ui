@@ -1,6 +1,6 @@
 <template>
     <div class="sui-input" :class="{error}">
-        <input :value="value" :disabled="disabled" :readonly="readonly" :type="type">
+        <input :value="value" :disabled="disabled" :readonly="readonly" :type="type" :placeholder="placeholder">
         <template v-if="error">
             <span class="sui-input-errorMessage">{{error}}</span>
         </template>
@@ -14,7 +14,8 @@
             disabled: { type: Boolean, default: false },
             readonly: { type: Boolean, default: false },
             error: { type: String },
-            type:{type:String,default:'text'}
+            type:{type:String,default:'text'},
+            placeholder:{type:String}
         }
     }
 </script>

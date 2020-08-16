@@ -11,6 +11,9 @@
     <Input  type="number"/>
     <h1>支持输入密码</h1>
     <Input  type="password"/>
+    <h1>支持 placeholder</h1>
+    <Input placeholder="xxx"/>
+
 
 
 
