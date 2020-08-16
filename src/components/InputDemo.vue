@@ -9,6 +9,8 @@
     <Input value="xxx" error="error"/>
     <h1>支持输入数字</h1>
     <Input  type="number"/>
+    <h1>支持输入密码</h1>
+    <Input  type="password"/>
 
 
 
