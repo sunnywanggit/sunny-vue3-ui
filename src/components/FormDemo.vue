@@ -9,7 +9,7 @@
             <SunnyInput :value="ruleForm.password" @input="(value)=>typeof value === 'string' ? ruleForm.password = value : ''"></SunnyInput>
         </SunnyFormItem>
         <SunnyFormItem>
-            <button>提交表单</button>
+            <button @click="submitForm">提交表单</button>
         </SunnyFormItem>
     </SunnyForm>
 </template>
@@ -25,18 +25,18 @@
         setup(){
             const ruleForm = reactive({username:'wang',password:''})
             const rules = reactive({
-                username:[
-                    {required:true,message:'请输入名称'},
-                ],
-                password:[
-                    {required:true,message:'请输入密码'}
-                ]
+                username:[ {required:true,message:'请输入名称'}, ],
+                password:[ {required:true,message:'请输入密码'} ]
             })
+
             const handleInput = (value)=>{
                 console.log('value',value);
                 console.log('type',typeof  value);
             }
 
+            const submitForm =()=>{
+
+            }
 
 
             return {ruleForm,rules,handleInput}

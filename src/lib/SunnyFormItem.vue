@@ -31,8 +31,6 @@
                 //通过描述信息创建一个骨架
                 let schema = new Schema(descriptor);
                 schema.validate({[props.prop]:newValue},(err,res)=>{
-                    console.log('err',err);
-                    console.log('res',res);
                     if(err){
                         errMessage.value = err[0].message;
                     }else{
