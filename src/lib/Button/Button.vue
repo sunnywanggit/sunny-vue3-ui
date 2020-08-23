@@ -98,6 +98,24 @@
             }
         }
 
+        &.sui-theme-dashed{
+            border: 1px dashed #ccc;
+            color:#ccc;
+            &:hover {
+                color: lighten($blue, 10%);
+                border-color: lighten($blue, 10%);
+            }
+        }
+
+        &.sui-theme-primary{
+            background-color: #008EF0;
+            color:#fff;
+            &:hover {
+                background-color: lighten(#008EF0, 10%);
+                color: lighten(#fff, 10%);
+
+            }
+        }
         &.sui-theme-text {
             border-color: transparent;
             box-shadow: none;

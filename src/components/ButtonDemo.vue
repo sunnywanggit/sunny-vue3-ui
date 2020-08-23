@@ -1,9 +1,13 @@
 <template>
     <div>
-        <Button>你好</Button>
-        <Button theme="button">你好</Button>
-        <Button theme="text">你好</Button>
-        <Button theme="link">你好</Button>
+        <h1>Button 按钮</h1>
+        <p>基础组件，触发业务逻辑时使用</p>
+        <h2>代码示例</h2>
+        <Button>Default</Button>
+        <Button theme="dashed">Dashed</Button>
+        <Button theme="text">Text</Button>
+        <Button theme="link">Link</Button>
+        <Button theme="primary">Primary</Button>
         <h1>size</h1>
         <Button size="big">big</Button>
         <Button size="middle">normal</Button>
