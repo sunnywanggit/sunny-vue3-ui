@@ -34,6 +34,34 @@
             <p class="text">辅助色是具有代表性的颜色，常用于信息提示，比如成功、警告和失败。</p>
         </section>
 
+        <section class="card">
+            <span class="color-block-assist title">
+                Title
+            </span>
+            <span class="color-block-assist content">
+                Content
+            </span>
+            <span class="color-block-assist sub-color">
+                Sub Color
+            </span>
+            <span class="color-block-assist disabled">
+                Disabled
+            </span>
+            <br>
+            <span class="color-block-assist border">
+                Border
+            </span>
+            <span class="color-block-assist divider">
+                Divider
+            </span>
+            <span class="color-block-assist background">
+                Background
+            </span>
+
+            <h4 class="margin10">中性色</h4>
+            <p class="text">中性色常用于文本、背景、边框、阴影等，可以体现出页面的层次结构。</p>
+        </section>
+
     </div>
 </template>
 
@@ -92,6 +120,34 @@
         &.error{
             background-color: #ed4014;
             color: #fff;
+        }
+        &.title{
+            background-color: #17233d;
+            color: #fff;
+        }
+        &.content{
+            background-color: #515a6e;
+            color: #fff;
+        }
+        &.sub-color{
+            background-color: #808695;
+            color: #fff;
+        }
+        &.disabled{
+            background-color: #c5c8ce;
+            color: #fff;
+        }
+        &.border{
+            background-color: #dcdee2;
+            color: #515a6e;
+        }
+        &.divider{
+            background-color: #e8eaec;
+            color: #515a6e;
+        }
+        &.background{
+            background-color: #f8f8f9;
+            color: #515a6e;
         }
     }
 
