@@ -54,6 +54,9 @@
     $blue: #40a9ff;
     $radius: 4px;
     $red: red;
+    $color-success:#00C172;
+    $color-warining:#FF9300;
+    $color-error:#FF2900;
     .sui-button {
         box-sizing: border-box;
         height: $h;
@@ -113,9 +116,39 @@
             &:hover {
                 background-color: lighten(#008EF0, 10%);
                 color: lighten(#fff, 10%);
-
             }
         }
+
+        &.sui-theme-success{
+            border: none;
+            background-color: $color-success;
+            color:#fff;
+            &:hover {
+                background-color: lighten($color-success, 10%);
+                color: lighten(#fff, 10%);
+            }
+        }
+
+        &.sui-theme-warining{
+            border: none;
+            background-color: $color-warining;
+            color:#fff;
+            &:hover {
+                background-color: lighten(#FF9300, 10%);
+                color: lighten(#fff, 10%);
+            }
+        }
+
+        &.sui-theme-error{
+            border: none;
+            background-color: $color-error;
+            color:#fff;
+            &:hover {
+                background-color: lighten($color-error, 10%);
+                color: lighten(#fff, 10%);
+            }
+        }
+
         &.sui-theme-text {
             border-color: transparent;
             box-shadow: none;
@@ -198,10 +231,10 @@
         &.sui-theme-button {
             &[disabled] {
                 cursor: not-allowed;
-                color: $grey;
+                color: lighten($grey,10%);
 
-                &:hover {
-                    border-color: $grey;
+                &:hover {;
+                    border-color:lighten($grey,10%) ;
                 }
             }
         }
@@ -230,6 +263,5 @@
         0% {transform: rotate(0deg)}
         100% {transform: rotate(360deg)}
     }
-
 </style>
 
