@@ -8,6 +8,8 @@ import TabsDemo from "./components/TabsDemo.vue";
 import DocDemo from "./components/DocDemo.vue";
 import InputDemo  from "./components/InputDemo.vue";
 import FormDemo  from "./components/FormDemo.vue";
+import MenuDemo from "./components/MenuDemo.vue";
+import intro from "./components/intro.vue";
 // import DatePickerDemo from './components/DatePickerDemo.vue'
 
 const history = createWebHashHistory();
@@ -25,7 +27,9 @@ export const router = createRouter({
         { path: "dialog", component: DialogDemo },
         { path: "tabs", component: TabsDemo },
         { path: "input", component: InputDemo},
-        { path: "Form", component: FormDemo}
+        { path: "Form", component: FormDemo},
+        { path: "menu", component: MenuDemo},
+        { path: "intro", component:intro}
         // { path: "datepicker", component: DatePickerDemo},
       ],
     },
