@@ -10,6 +10,9 @@ import InputDemo  from "./components/InputDemo.vue";
 import FormDemo  from "./components/FormDemo.vue";
 import MenuDemo from "./components/MenuDemo.vue";
 import intro from "./components/intro.vue";
+import ColorDemo from "./components/ColorDemo.vue";
+import CardDemo from "./components/CardDemo.vue";
+
 // import DatePickerDemo from './components/DatePickerDemo.vue'
 
 const history = createWebHashHistory();
@@ -29,7 +32,9 @@ export const router = createRouter({
         { path: "input", component: InputDemo},
         { path: "Form", component: FormDemo},
         { path: "menu", component: MenuDemo},
-        { path: "intro", component:intro}
+        { path: "intro", component:intro},
+        { path: "color", component:ColorDemo},
+        { path: "card", component:CardDemo}
         // { path: "datepicker", component: DatePickerDemo},
       ],
     },

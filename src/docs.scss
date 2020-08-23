@@ -13,16 +13,17 @@ $color-main:#008EF0;
 }
 
 .card{
-  border: 1px solid #EEEEEE;
-  margin-bottom: 20px;
+  border: 1px solid darken(#EEEEEE,8%);
+  margin-bottom: 30px;
   padding: 10px 20px;
   &:hover{
-    box-shadow: 5px 5px 3px #EEEEEE;
+    box-shadow: 5px 5px 3px darken(#EEEEEE,2%);
   }
 }
 
 
 
 .text{
-  font-size: 13px;
+  margin: 10px 0;
+  font-size: 14px;
 }

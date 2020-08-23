@@ -8,11 +8,23 @@
             <router-link to="/doc/intro">介绍</router-link>
           </li>
         </ol>
-          <span class="category-title">基础</span>
+        <span class="category-title">基础</span>
         <ol>
+          <li>
+            <router-link to="/doc/color">Color 组件</router-link>
+          </li>
           <li>
             <router-link to="/doc/button">Button 组件</router-link>
           </li>
+        </ol>
+        <span class="category-title">布局</span>
+        <ol>
+          <li>
+            <router-link to="/doc/card">Card 组件</router-link>
+          </li>
+        </ol>
+        <span class="category-title">表单</span>
+        <ol>
           <li>
             <router-link to="/doc/switch">Switch 组件</router-link>
           </li>
