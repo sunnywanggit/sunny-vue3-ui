@@ -3,10 +3,9 @@
         <div class="sui-dialog-overlay" @click="onClickOverlay"></div>
         <div class="sui-dialog-wrapper">
             <div class="sui-dialog">
-                <header>标题 <span @click="handleClose" class="sui-dialog-close"></span></header>
+                <header><slot name="title"/><span @click="handleClose" class="sui-dialog-close"></span></header>
                 <main>
-                    <p>第一行字</p
-                    <p>第二行字</p>
+                    <slot name="content"/>
                 </main>
                 <footer>
                     <Button @click="handleOk">OK</Button>
@@ -22,6 +21,10 @@
         name:"SunnyDialog",
         components: {Button},
         props:{
+            title:{
+                type:String,
+                default:"提示"
+            },
             visible:{
                 type:Boolean,
                 default:false

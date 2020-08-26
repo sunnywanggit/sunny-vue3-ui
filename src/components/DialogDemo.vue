@@ -5,7 +5,17 @@
             :close-on-click-overlay="closeOnClickOverlay"
             :ok="handleOk"
             :cancel="handleCancel"
-    />
+    >
+        <template v-slot:title>
+            <span>thsi is title</span>
+        </template>
+        <template  v-slot:content>
+            <div>
+                this is content
+                this is content
+            </div>
+        </template>
+    </SunnyDialog>
     <Button @click="handleToggle">toggle</Button>
     {{visible}}
 
