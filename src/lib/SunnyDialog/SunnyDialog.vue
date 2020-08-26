@@ -3,7 +3,7 @@
         <div class="sui-dialog-overlay"></div>
         <div class="sui-dialog-wrapper">
             <div class="sui-dialog">
-                <header>标题 <span class="sui-dialog-close"></span></header>
+                <header>标题 <span @click="handleClose" class="sui-dialog-close"></span></header>
                 <main>
                     <p>第一行字</p
                     <p>第二行字</p>
@@ -26,6 +26,13 @@
                 type:Boolean,
                 default:false
             }
+        },
+        setup(props,context){
+            const handleClose=()=>{
+                context.emit('update:visible',false)
+            }
+
+            return {handleClose}
         }
     }
 </script>

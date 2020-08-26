@@ -1,5 +1,5 @@
 <template>
-    <SunnyDialog :visible="visible"/>
+    <SunnyDialog :visible="visible" @update:visible="visible = $event"/>
     <Button @click="handleToggle">toggle</Button>
     {{visible}}
 
