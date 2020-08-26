@@ -1,18 +1,20 @@
 <template>
     <template v-if="visible">
-        <div class="sui-dialog-overlay" @click="onClickOverlay"></div>
-        <div class="sui-dialog-wrapper">
-            <div class="sui-dialog">
-                <header><slot name="title"/><span @click="handleClose" class="sui-dialog-close"></span></header>
-                <main>
-                    <slot name="content"/>
-                </main>
-                <footer>
-                    <Button @click="handleOk">OK</Button>
-                    <Button @click="handleCancel">Cancel</Button>
-                </footer>
+        <Teleprot to="body">
+            <div class="sui-dialog-overlay" @click="onClickOverlay"></div>
+            <div class="sui-dialog-wrapper">
+                <div class="sui-dialog">
+                    <header><slot name="title"/><span @click="handleClose" class="sui-dialog-close"></span></header>
+                    <main>
+                        <slot name="content"/>
+                    </main>
+                    <footer>
+                        <Button @click="handleOk">OK</Button>
+                        <Button @click="handleCancel">Cancel</Button>
+                    </footer>
+                </div>
             </div>
-        </div>
+        </Teleprot>
     </template>
 </template>
 <script lang="ts">
