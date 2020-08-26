@@ -1,5 +1,11 @@
 <template>
-    <SunnyDialog :visible="visible" @update:visible="visible = $event"/>
+    <SunnyDialog
+            :visible="visible"
+            @update:visible="visible = $event"
+            :close-on-click-overlay="closeOnClickOverlay"
+            :ok="handleOk"
+            :cancel="handleCancel"
+    />
     <Button @click="handleToggle">toggle</Button>
     {{visible}}
 
@@ -14,10 +20,19 @@
         components: {Button, SunnyDialog},
         setup(){
             let visible = ref(false);
+            let closeOnClickOverlay = ref(true)
             const handleToggle=()=>{
                 visible.value = !visible.value;
             }
-            return {visible,handleToggle}
+            const handleOk = ()=>{
+                console.log('ok');
+                return true;
+            }
+            const handleCancel = ()=>{
+                console.log('cancel');
+            }
+
+            return {visible,handleToggle,closeOnClickOverlay,handleOk,handleCancel}
         }
     }
 </script>

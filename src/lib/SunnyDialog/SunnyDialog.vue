@@ -1,6 +1,6 @@
 <template>
     <template v-if="visible">
-        <div class="sui-dialog-overlay"></div>
+        <div class="sui-dialog-overlay" @click="onClickOverlay"></div>
         <div class="sui-dialog-wrapper">
             <div class="sui-dialog">
                 <header>标题 <span @click="handleClose" class="sui-dialog-close"></span></header>
@@ -9,8 +9,8 @@
                     <p>第二行字</p>
                 </main>
                 <footer>
-                    <Button>OK</Button>
-                    <Button>Cancel</Button>
+                    <Button @click="handleOk">OK</Button>
+                    <Button @click="handleCancel">Cancel</Button>
                 </footer>
             </div>
         </div>
@@ -25,14 +25,32 @@
             visible:{
                 type:Boolean,
                 default:false
+            },
+            closeOnClickOverlay:{
+                type:Boolean,
+                default:true
+            },
+            ok:{
+                type:Function
+            },
+            cancel:{
+                type:Function
             }
         },
         setup(props,context){
             const handleClose=()=>{
                 context.emit('update:visible',false)
             }
-
-            return {handleClose}
+            const onClickOverlay=()=>{
+                props.closeOnClickOverlay ? handleClose() : ''
+            }
+            const handleOk = ()=>{
+                if(props.ok?.() !== false){handleClose()}
+            }
+            const handleCancel =()=>{
+                if(props.cancel?.() !== false){handleClose()}
+            }
+            return {handleClose,onClickOverlay,handleOk,handleCancel}
         }
     }
 </script>
