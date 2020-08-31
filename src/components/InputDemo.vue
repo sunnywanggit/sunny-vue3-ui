@@ -14,11 +14,6 @@
     <h1>支持 placeholder</h1>
     <Input placeholder="xxx"/>
 
-
-
-
-
-
 </template>
 
 <script>

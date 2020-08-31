@@ -1,6 +1,6 @@
 <template>
     <template v-if="visible">
-        <Teleprot to="body">
+        <Teleport to="body">
             <div class="sui-dialog-overlay" @click="onClickOverlay"></div>
             <div class="sui-dialog-wrapper">
                 <div class="sui-dialog">
@@ -14,7 +14,7 @@
                     </footer>
                 </div>
             </div>
-        </Teleprot>
+        </Teleport>
     </template>
 </template>
 <script lang="ts">

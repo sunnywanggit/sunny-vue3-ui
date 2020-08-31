@@ -1,10 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">SVUI</div>
+    <div class="logo"><a href="">SVUI</a></div>
     <ol class="menu">
-      <li>SRUI</li>
-      <li>SMUI</li>
-      <li>github</li>
+      <li><a href="">SRUI组件库</a></li>
+      <li><a href="">SMUI组件库</a></li>
+      <li><a href="https://github.com/sunnywanggit/sunny-vue3-ui">github</a></li>
     </ol>
     <span class="toggleAside" @click="toggleMenu"></span>
   </div>

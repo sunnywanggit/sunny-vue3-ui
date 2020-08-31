@@ -37,7 +37,6 @@
             <Button loading>加载中</Button>
             <h4 class="margin10">加载中状态</h4>
             <p class="text">通过添加loading属性可以让按钮处于加载中状态。</p>
-
         </section>
     </div>
 </template>

@@ -2,12 +2,11 @@
   <div>
     <Topnav />
     <div class="banner">
-      <h1>sunny-vue3-ui</h1>
-
-      <h2>一个厉害的 UI 框架</h2>
+      <img class="logo" src="../assets/imgs/logo.png" alt="">
+      <h2 class="title">一套基于 Vue3.0+TypeScript 的前端 UI 组件库</h2>
       <p class="actions">
         <a href="https://github.com">GitHub</a>
-        <router-link to="/doc">开始</router-link>
+        <router-link to="/doc">快速开始</router-link>
       </p>
     </div>
   </div>
@@ -20,21 +19,28 @@ export default {
 </script>
 <style lang="scss" scoped>
 .banner {
-  padding: 100px 0;
+  padding-top: 50px;
+  /*padding: 100px 0;*/
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+  > .title{
+    margin: 0;
+    padding: 0;
+  }
   > .actions{
-    padding: 8px 0;
+    padding: 20px 0;
     a {
+      text-align: center;
+      border: 1px solid #ccc;
       margin:0 8px;
       background: #fff;
       display: inline-block;
       $h: 28px;
       height: $h;
       line-height: $h;
+      width: $h*3;
       border-radius: $h/2;
       padding: 0 8px;
     }

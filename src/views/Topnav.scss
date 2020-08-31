@@ -21,6 +21,9 @@
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+      > a{
+        cursor: pointer;
+      }
     }
   }
   > .toggleAside {

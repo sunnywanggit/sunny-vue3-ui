@@ -1,5 +1,4 @@
 <template>
-<div>
     <div>
         <h2 class="margin20">Card 卡片</h2>
         <h3 class="margin15">概述</h3>
