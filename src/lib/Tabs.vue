@@ -6,7 +6,13 @@
            v-for="(title,index) in titles"
            :class="{selected:title === selected}"
            @click="select(title)"
-           :key="index">{{title}}</div>
+           :key="index">
+        {{title}}
+      </div>
+      <div class="sui-tabs-nav-indicator">
+
+
+      </div>
     </div>
 
     <div class="sui-tabs-content">
@@ -64,6 +70,7 @@ export default {
        display: flex;
        color: $color;
        border-bottom: 1px solid $border-color;
+      position: relative;
     &-item {
        padding: 8px 0;
        margin: 0 16px;
@@ -74,6 +81,14 @@ export default {
       &.selected {
          color: $blue;
        }
+    }
+    &-indicator{
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
     }
   }
   &-content {
