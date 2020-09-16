@@ -5,12 +5,16 @@
       <div class="sui-tabs-nav-item"
            v-for="(title,index) in titles"
            :class="{selected:title === selected}"
+           @click="select(title)"
            :key="index">{{title}}</div>
     </div>
 
     <div class="sui-tabs-content">
       <!--    使用componet实现插槽（为了后续实现嵌套插槽做准备）-->
-      <component v-for="(component,index) in defaults" :is="component" :key="index"/>
+      <component v-for="(component,index) in defaults" :is="component"
+                 :key="index"
+                 class="sui-tabs-content-item"
+                 :class="{selected:component.props.title === selected}" />
     </div>
 
   </div>
@@ -25,8 +29,6 @@ export default {
   },
   setup(props,context){
     const  defaults = context.slots.default();
-    console.log('props',props);
-
     //判断子组件类型
     defaults.forEach((item)=>{
       if(item.type !== Tab){
@@ -34,15 +36,19 @@ export default {
         throw new Error('Tabs 子标签必须是 Tab')
       }
     })
-
     //获取子组件的title属性
     const titles = defaults.map((tag)=>{
       return tag.props.title
     })
 
+    const select = (title:string)=>{
+      context.emit('update:selected',title)
+    }
+
     return {
       defaults,
-      titles
+      titles,
+      select
     }
   }
 
@@ -71,7 +77,13 @@ export default {
     }
   }
   &-content {
-     padding: 8px 0;
+    padding: 8px 0;
+    &-item{
+      display: none;
+      &.selected{
+        display: block;
+      }
+    }
    }
   }
 </style>
