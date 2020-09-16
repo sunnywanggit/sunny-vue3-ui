@@ -1,12 +1,18 @@
 <template>
   <div class="sui-tabs">
+
     <div class="sui-tabs-nav">
-      <div class="sui-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
+      <div class="sui-tabs-nav-item"
+           v-for="(title,index) in titles"
+           :class="{selected:title === selected}"
+           :key="index">{{title}}</div>
     </div>
+
     <div class="sui-tabs-content">
       <!--    使用componet实现插槽（为了后续实现嵌套插槽做准备）-->
       <component v-for="(component,index) in defaults" :is="component" :key="index"/>
     </div>
+
   </div>
 </template>
 
@@ -14,8 +20,12 @@
 import Tab from "./Tab.vue";
 export default {
   name:"Tabs",
+  props:{
+    selected: String
+  },
   setup(props,context){
     const  defaults = context.slots.default();
+    console.log('props',props);
 
     //判断子组件类型
     defaults.forEach((item)=>{
@@ -29,7 +39,6 @@ export default {
     const titles = defaults.map((tag)=>{
       return tag.props.title
     })
-
 
     return {
       defaults,
