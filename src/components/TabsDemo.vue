@@ -1,10 +1,20 @@
 <template>
   <div>
-    <h1>示例1</h1>
-    <Tabs v-model:selected="x">
-      <Tab title="导航1">内容1</Tab>
-      <Tab title="导航2">内容2</Tab>
-    </Tabs>
+    <h2 class="margin20">Tabs 标签页</h2>
+    <h3 class="margin15">概述</h3>
+    <section class="margin10">
+      <p class="text">选项卡切换组件,提供平级的区域将大块内容进行收纳和展现，保持界面整洁。</p>
+    </section>
+    <h3 class="margin15">代码示例</h3>
+    <section class="card">
+      <Tabs v-model:selected="x">
+        <Tab title="Tab1">Content of Tab Pane 1</Tab>
+        <Tab title="Tab2">Content of Tab Pane 2</Tab>
+        <Tab title="Tab3">Content of Tab Pane 3</Tab>
+      </Tabs>
+      <h4 class="margin10">基本</h4>
+      <p class="text">默认选中第一项</p>
+    </section>
   </div>
 </template>
 
@@ -17,7 +27,7 @@ export default {
   name:"TabsDemo",
   components: {Tab, Tabs},
   setup(){
-    const x = ref('导航1')
+    const x = ref('Tab1')
     return{x}
   }
 }
