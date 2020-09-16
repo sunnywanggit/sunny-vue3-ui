@@ -6,7 +6,7 @@
            v-for="(title,index) in titles"
            :class="{selected:title === selected}"
            @click="select(title)"
-           :ref="el => { if (el) navItems[index] = el }"
+           :ref="el => { if (title === selected) selectedItem = el }"
            :key="index">
         {{title}}
       </div>
@@ -34,24 +34,26 @@ export default {
   },
   setup(props,context){
     const  defaults = context.slots.default();
-    const navItems = ref<HTMLDivElement[]>([]);
+
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
 
     const x = ()=>{
-      const divs = navItems.value
-      const result = divs.filter(div=>div.classList.contains('selected'))[0]
-      const {width} = result.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
 
       const {left:left1} = container.value.getBoundingClientRect()
-      const {left:left2} = result.getBoundingClientRect()
+      const {left:left2} = selectedItem.value.getBoundingClientRect()
       const left = left2 - left1;
       indicator.value.style.left = left + 'px';
     }
+
+    //TODO 这部分内容可以使用 watchEffect 进行优化
     //挂在完成之后执行
-    onMounted(x),//注意：只在第一次渲染执行
-    onUpdated(x),
+    onMounted(x)//注意：只在第一次渲染执行
+    onUpdated(x)
+    // watchEffect(x),
     //判断子组件类型
     defaults.forEach((item)=>{
       if(item.type !== Tab){
@@ -71,7 +73,7 @@ export default {
     return {
       defaults,
       titles,
-      navItems,
+      selectedItem,
       indicator,
       container,
       select
