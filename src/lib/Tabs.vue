@@ -6,13 +6,11 @@
            v-for="(title,index) in titles"
            :class="{selected:title === selected}"
            @click="select(title)"
+           :ref="el => { if (el) navItems[index] = el }"
            :key="index">
         {{title}}
       </div>
-      <div class="sui-tabs-nav-indicator">
-
-
-      </div>
+      <div class="sui-tabs-nav-indicator" ref="indicator"> </div>
     </div>
 
     <div class="sui-tabs-content">
@@ -28,6 +26,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
+import {ref,onMounted} from 'vue'
 export default {
   name:"Tabs",
   props:{
@@ -35,6 +34,15 @@ export default {
   },
   setup(props,context){
     const  defaults = context.slots.default();
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null)
+    //挂在完成之后执行
+    onMounted(()=>{
+      const divs = navItems.value
+      const result = divs.filter(div=>div.classList.contains('selected'))[0]
+      const {width} = result.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+    }),
     //判断子组件类型
     defaults.forEach((item)=>{
       if(item.type !== Tab){
@@ -54,6 +62,8 @@ export default {
     return {
       defaults,
       titles,
+      navItems,
+      indicator,
       select
     }
   }
