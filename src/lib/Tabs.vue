@@ -21,6 +21,12 @@ export default {
       }
     })
 
+    //获取子组件的title属性
+    const titles = defaults.map((tag)=>{
+      return tag.props.title
+    })
+
+
     return {
       defaults
     }
