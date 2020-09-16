@@ -1,8 +1,8 @@
 <template>
   <div>
-    Tabs 组件
+    <div v-for="(title,index) in titles" :key="index">{{title}}</div>
     <!--    使用componet实现插槽（为了后续实现嵌套插槽做准备）-->
-    <component v-for="component in defaults" :is="component"/>
+    <component v-for="(component,index) in defaults" :is="component" :key="index"/>
   </div>
 </template>
 
@@ -28,7 +28,8 @@ export default {
 
 
     return {
-      defaults
+      defaults,
+      titles
     }
   }
 
