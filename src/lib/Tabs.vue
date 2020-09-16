@@ -1,7 +1,7 @@
 <template>
   <div class="sui-tabs">
 
-    <div class="sui-tabs-nav">
+    <div class="sui-tabs-nav" ref="container">
       <div class="sui-tabs-nav-item"
            v-for="(title,index) in titles"
            :class="{selected:title === selected}"
@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {ref,onMounted} from 'vue'
+import {ref,onMounted,onUpdated} from 'vue'
 export default {
   name:"Tabs",
   props:{
@@ -36,13 +36,22 @@ export default {
     const  defaults = context.slots.default();
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null)
-    //挂在完成之后执行
-    onMounted(()=>{
+    const container = ref<HTMLDivElement>(null)
+
+    const x = ()=>{
       const divs = navItems.value
       const result = divs.filter(div=>div.classList.contains('selected'))[0]
       const {width} = result.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
-    }),
+
+      const {left:left1} = container.value.getBoundingClientRect()
+      const {left:left2} = result.getBoundingClientRect()
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    }
+    //挂在完成之后执行
+    onMounted(x),//注意：只在第一次渲染执行
+    onUpdated(x),
     //判断子组件类型
     defaults.forEach((item)=>{
       if(item.type !== Tab){
@@ -64,6 +73,7 @@ export default {
       titles,
       navItems,
       indicator,
+      container,
       select
     }
   }
@@ -99,6 +109,7 @@ export default {
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
   &-content {
