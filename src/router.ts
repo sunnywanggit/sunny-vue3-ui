@@ -34,7 +34,8 @@ export const router = createRouter({
         { path: "menu", component: MenuDemo},
         { path: "intro", component:intro},
         { path: "color", component:ColorDemo},
-        { path: "card", component:CardDemo}
+        { path: "card", component:CardDemo},
+        { path: "tebs", component:TabsDemo}
         // { path: "datepicker", component: DatePickerDemo},
       ],
     },

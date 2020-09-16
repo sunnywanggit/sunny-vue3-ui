@@ -47,6 +47,13 @@
 <!--            <router-link to="/doc/menu">Menu 组件</router-link>-->
 <!--          </li>-->
         </ol>
+        <span class="category-title">表单</span>
+        <ol>
+          <li>
+            <router-link to="/doc/tabs">Tabs 组件</router-link>
+          </li>
+        </ol>
+
       </aside>
       <main>
         <router-view />
