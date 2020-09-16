@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div v-for="(title,index) in titles" :key="index">{{title}}</div>
-    <!--    使用componet实现插槽（为了后续实现嵌套插槽做准备）-->
-    <component v-for="(component,index) in defaults" :is="component" :key="index"/>
+  <div class="sui-tabs">
+    <div class="sui-tabs-nav">
+      <div class="sui-tabs-nav-item" v-for="(title,index) in titles" :key="index">{{title}}</div>
+    </div>
+    <div class="sui-tabs-content">
+      <!--    使用componet实现插槽（为了后续实现嵌套插槽做准备）-->
+      <component v-for="(component,index) in defaults" :is="component" :key="index"/>
+    </div>
   </div>
 </template>
 
@@ -36,6 +40,29 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  $blue: #40a9ff;
+  $color: #333;
+  $border-color: #d9d9d9;
+  .sui-tabs {
+    &-nav {
+       display: flex;
+       color: $color;
+       border-bottom: 1px solid $border-color;
+    &-item {
+       padding: 8px 0;
+       margin: 0 16px;
+       cursor: pointer;
+      &:first-child {
+         margin-left: 0;
+       }
+      &.selected {
+         color: $blue;
+       }
+    }
+  }
+  &-content {
+     padding: 8px 0;
+   }
+  }
 </style>
